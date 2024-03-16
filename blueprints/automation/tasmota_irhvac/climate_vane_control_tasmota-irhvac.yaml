@@ -67,10 +67,8 @@ variables:
   vane:
     attr:
       Vertical: swingv
-      Horizontal: swingh
     srv:
       Vertical: tasmota_irhvac.set_swingv
-      Horizontal: tasmota_irhvac.set_swingh
   key: !input vane
   climate_entity: !input climate_entity
 
@@ -80,11 +78,6 @@ trigger:
       - !input climate_entity
     attribute: swingv
     id: Vertical
-  - platform: state
-    entity_id:
-      - !input climate_entity
-    attribute: swingh
-    id: Horizontal
   - platform: state
     entity_id:
       - !input input_entity
@@ -105,11 +98,6 @@ action:
             data:
               entity_id: !input climate_entity
               swingv: "{{states(trigger.entity_id)}}"
-        else:
-          - service: "{{vane.srv[key]}}"
-            data:
-              entity_id: !input climate_entity
-              swingh: "{{states(trigger.entity_id)}}"
   - if:
       - condition: template
         value_template: '{{key == trigger.id}}'
