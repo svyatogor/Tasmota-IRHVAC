@@ -1,6 +1,6 @@
 blueprint:
   name: Climate Vane Control - Tasmota-IRHVAC
-  description: Contoroling vertical or horizontal vane swing, potition of Climate on Tasmota-IRHVAC
+  description: Contoroling vertical vane swing, potition of Climate on Tasmota-IRHVAC
   domain: automation
   source_url: https://github.com/hristo-atanasov/Tasmota-IRHVAC/blob/master/blueprints/automation/tasmota_irhvac/climate_vane_control_tasmota-irhvac.yaml
   input:
@@ -30,26 +30,6 @@ blueprint:
 - low
 
 - lowest
-
-
-### Horizontal Vane
-
-- off
-
-- auto
-
-- left max
-
-- left
-
-- middle
-
-- right
-
-- right max
-
-- wide
-
 "
     vane:
       name: Target Vane
@@ -58,7 +38,6 @@ blueprint:
         select:
           options:
             - Vertical
-            - Horizontal
 
 mode: parallel
 max: 2
